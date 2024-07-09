@@ -1,0 +1,33 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[scripts]
+dev = "uvicorn main:app --reload --host 0.0.0.0 --port 8000"
+lint = "bash -c 'isort . && black . && flake8 .'"
+fix = "bash -c 'isort . ; black .'"
+pre-commit = "bash -c 'isort ./ && black ./ && flake8 ./ && git add .'"
+test = "pytest ../tests/unit/test_handler.py -p no:warnings"
+
+[packages]
+requests = "*"
+fastapi = "*"
+uvicorn = "*"
+boto3 = "*"
+pytest = "*"
+google-cloud-videointelligence = "*"
+python-dotenv = "*"
+python-magic = "*"
+
+[dev-packages]
+flake8 = "*"
+flake8-import-order = "*"
+flake8-isort = "*"
+flake8-print = "*"
+isort = "*"
+black = "*"
+pre-commit = "*"
+
+[requires]
+python_version = "3.9"
